@@ -16,9 +16,15 @@ def main():
 
     mongoHosts = os.environ['mongo_addresses'].split(',')
     mongoDB = os.environ['mongo_database']
+    mongoUsername = os.environ['mongo_username']
+    mongoPassword = os.environ['mongo_password']
 
     client = MongoClient(mongoHosts)
     db = client[mongoDB]
+
+    if mongoUsername is not None:
+        db.authenticate(mongoUsername, mongoPassword)
+
     serverCollection = db['servers']
     servertypesCollection = db['servertypes']
     nodesCollection = db['nodes']
