@@ -133,7 +133,7 @@ def main():
     modifyConfig('maxplayers', servertype['players'])
 
     # modify server config for server name
-    modifyConfig('servername', servertype['name']+'.'+server['number'])
+    modifyConfig('servername', servertype['name']+'.'+str(server['number']))
 
     modifyLog('SYS_HOST', node['privateAddress'])
     modifyLog('SERVERTYPE', servertype['name'])
